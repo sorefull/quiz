@@ -18,6 +18,8 @@
 
 $(document).ready(function() {
   $('.answear').on('click', function() {
+    $('.list-group-item-info').removeClass('list-group-item-info');
+    $(this).addClass('list-group-item-info');
     $('#quizz_response_answer_id').val($(this).data("value"));
     $('input.btn.btn-primary').removeAttr('disabled');
   });
