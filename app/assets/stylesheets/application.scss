@@ -26,3 +26,13 @@ body::before {
   -ms-filter: blur(50px);
   filter: blur(50px);
 }
+
+.scrollable-parrent {
+  position: relative;
+  height: 500px;
+}
+
+.scrollable-child {
+  max-height:100%;
+  overflow:auto;
+}

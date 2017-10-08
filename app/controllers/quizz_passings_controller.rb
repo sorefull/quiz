@@ -17,12 +17,6 @@ class QuizzPassingsController < ApplicationController
     end
   end
 
-  def destroy
-    quizz_passing = QuizzPassing.find(params[:id])
-    quizz_passing.delete
-    step_redirect
-  end
-
   private
 
   def quizz_passing_params
