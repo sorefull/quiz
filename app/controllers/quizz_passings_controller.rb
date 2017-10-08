@@ -11,7 +11,7 @@ class QuizzPassingsController < ApplicationController
     @quizz_passing = QuizzPassing.new(quizz_passing_params)
     if @quizz_passing.save
       session[:quizz_passing_id] = @quizz_passing.id
-      redirect_razor
+      step_redirect
     else
       render :new
     end
@@ -20,7 +20,7 @@ class QuizzPassingsController < ApplicationController
   def destroy
     quizz_passing = QuizzPassing.find(params[:id])
     quizz_passing.delete
-    redirect_razor
+    step_redirect
   end
 
   private

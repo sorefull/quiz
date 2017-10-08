@@ -16,4 +16,8 @@ class QuizzResponse < ApplicationRecord
   belongs_to :quizz_passing
   belongs_to :question
   belongs_to :answer
+
+  def correct?
+    question.correct_answer == answer
+  end
 end

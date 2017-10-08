@@ -1,2 +1,13 @@
-= quizz_passing.user_name
-= link_to 'x', quizz_passing, method: :delete
+.col-md-6.col-xs-12
+  = quizz_passing.user_name
+.col-md-6.col-xs-12
+  = quizz_passing.updated_at.strftime("Finished: %d.%m.%Y")
+.col-12
+  %table.table.table-hover
+    %tbody
+      - quizz_passing.quizz_responses.each do |reponse|
+        %tr{class: "#{reponse.correct? ? 'info' : 'danger' }"}
+          %td
+            = truncate(reponse.question.question, length: 40)
+          %td
+            = truncate(reponse.answer.answer, length: 40)

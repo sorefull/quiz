@@ -4,7 +4,7 @@ class QuizzResponsesController < ApplicationController
     @quizz_response = QuizzResponse.new(quizz_response_params)
     if @quizz_response.save
       a = current_passing.update(current_question: @question.next)
-      redirect_razor
+      step_redirect
     else
       render 'questions/show'
     end

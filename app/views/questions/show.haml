@@ -1,7 +1,12 @@
-= @question.question
-%ul
-  - @question.answers.each do |answer|
-    %li= answer.answer
-= form_for @quizz_response do |f|
-  = f.collection_select(:answer_id, @question.answers, :id, :answer)
-  = f.submit
+.panel-heading
+  = @question.question
+.panel-body
+  .list-group
+    - @question.answers.each do |answer|
+      = link_to answer.answer, '', remote: true, class: 'list-group-item answear', 'data-value': answer.id
+  .progress
+    .progress-bar.progress-bar-striped{:style => "width: #{@progress}%;"}
+.panel-footer
+  = form_for @quizz_response do |f|
+    = f.hidden_field :answer_id
+    = f.submit :Next, class: 'btn btn-primary', disabled: 'disabled'

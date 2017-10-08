@@ -11,7 +11,7 @@
 class Question < ApplicationRecord
   has_many :answers
 
-  def proper_answer
+  def correct_answer
     answers.where(proper: true).first
   end
 

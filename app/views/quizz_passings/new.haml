@@ -1,3 +1,7 @@
-= form_for @quizz_passing do |f|
-  = f.text_field :user_name
-  = f.submit :save
+.panel-heading
+  %h4 Input your name to start Quiz
+.panel-body
+  = bootstrap_form_for @quizz_passing do |f|
+    .form-group
+      = f.text_field :user_name, class: 'form-control', skip_label: true
+    = f.submit :Start, class: 'btn btn-primary'
