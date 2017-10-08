@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008084145) do
+ActiveRecord::Schema.define(version: 20171008100134) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.text "answer"
+    t.boolean "proper"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "quizz_passings", force: :cascade do |t|
     t.string "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "current_question_id"
+  end
+
+  create_table "quizz_responses", force: :cascade do |t|
+    t.integer "quizz_passing_id"
+    t.integer "question_id"
+    t.integer "answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

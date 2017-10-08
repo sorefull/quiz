@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: answers
+#
+#  id          :integer          not null, primary key
+#  question_id :integer
+#  answer      :text
+#  proper      :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: one
+  answer: MyText
+  proper: false
+
+two:
+  question: two
+  answer: MyText
+  proper: false

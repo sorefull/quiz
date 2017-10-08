@@ -11,7 +11,7 @@ class QuizzPassingsController < ApplicationController
     @quizz_passing = QuizzPassing.new(quizz_passing_params)
     if @quizz_passing.save
       session[:quizz_passing_id] = @quizz_passing.id
-      redirect_to quizz_passings_path
+      redirect_razor
     else
       render :new
     end
@@ -19,13 +19,13 @@ class QuizzPassingsController < ApplicationController
 
   def destroy
     quizz_passing = QuizzPassing.find(params[:id])
-    quizz_passing.destroy
-    redirect_to quizz_passings_path
+    quizz_passing.delete
+    redirect_razor
   end
 
   private
 
   def quizz_passing_params
-    params.require(:quizz_passing).permit(:user_name)
+    params.require(:quizz_passing).permit(:user_name).merge(current_question: Question.first)
   end
 end

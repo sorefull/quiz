@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :quizz_passings
-  # resources :quizz_passings, only: [:index, :new, :create]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'quizz_passings#index'
+  resources :quizz_responses, only: :create
+  resources :questions, only: :show
+  resources :quizz_passings, only: [:index, :new, :create, :destroy]
 end

@@ -1,0 +1,7 @@
+= @question.question
+%ul
+  - @question.answers.each do |answer|
+    %li= answer.answer
+= form_for @quizz_response do |f|
+  = f.collection_select(:answer_id, @question.answers, :id, :answer)
+  = f.submit
