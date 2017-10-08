@@ -1,6 +1,6 @@
 class QuizzPassingsController < ApplicationController
   def index
-    @quizz_passings = QuizzPassing.all
+    @quizz_passings = QuizzPassing.finished
   end
 
   def new

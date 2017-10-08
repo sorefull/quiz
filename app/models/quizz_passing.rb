@@ -14,4 +14,6 @@ class QuizzPassing < ApplicationRecord
   has_many :quizz_responses, dependent: :destroy
 
   belongs_to :current_question, foreign_key: :current_question_id, class_name: 'Question', optional: true
+
+  scope :finished, -> { where(current_question: nil) }
 end
